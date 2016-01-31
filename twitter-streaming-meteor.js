@@ -54,7 +54,7 @@ if (Meteor.isServer) {
     });
 
     // filter the public stream by english tweets containing `#javascript`
-    var stream = Twit.stream('statuses/filter', { track: '#javascript', language: 'en' })
+    var stream = Twit.stream('statuses/filter', { track:  ['#meteor', '#javascript'], language: 'en' })
     stream.on('tweet', Meteor.bindEnvironment(function (tweet) {
       var image = tweet.user.profile_image_url;
       var user = tweet.user.name;
