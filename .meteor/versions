@@ -1,3 +1,4 @@
+appbaseio:appbase@0.10.6
 autopublish@1.0.4
 autoupdate@1.2.4
 babel-compiler@5.8.24_1
@@ -12,6 +13,7 @@ caching-compiler@1.0.0
 caching-html-compiler@1.0.2
 callback-hook@1.0.4
 check@1.1.0
+coffeescript@1.0.11
 ddp@1.2.2
 ddp-client@1.2.1
 ddp-common@1.2.2
@@ -34,10 +36,12 @@ jquery@1.11.4
 launch-screen@1.0.4
 livedata@1.0.15
 logging@1.0.8
+manuel:reactivearray@1.0.5
 meteor@1.1.10
 meteor-base@1.0.1
 minifiers@1.1.7
 minimongo@1.0.10
+mizzao:bootstrap-3@3.3.1_1
 mobile-experience@1.0.1
 mobile-status-bar@1.0.6
 mongo@1.1.3
