@@ -1,14 +1,32 @@
 <head>
-  <title>twitter-streaming-meteor</title>
+	<title>Twitter Streaming in Meteor</title>
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
-
-  {{> hello}}
+	<div class="container">
+		<h1>Tweets</h1>
+		<div class="col s12 m8 offset-m2 l6 offset-l3">
+			<div class="card-panel grey lighten-5 z-depth-1">
+				{{#each tweets}}
+					{{> tweetItem}}
+				{{/each}} 
+			</div>
+		</div>
+	</div>
 </body>
 
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
+<template name="tweetItem">
+	<div class="row valign-wrapper">
+		<div class="col-md-1">
+			<img src="{{picture}}" alt="" class="circle responsive-img">
+		</div>
+		<div class="col-md-11">
+			<span class="black-text">
+				<a href="https://www.twitter.com/{{user}}" target="_blank">{{user}}</a> 
+				<p>
+					{{tweet}}
+				</p>
+			</span>
+		</div>
+	</div>
 </template>

@@ -1,1 +1,12 @@
 /* CSS declarations go here */
+a {
+    color: #009FDA;
+    text-decoration: none;
+}
+a:hover {
+    color: #00BAFF;
+}
+.row{
+  margin-top: 30px;
+  margin-bottom: 30px
+}

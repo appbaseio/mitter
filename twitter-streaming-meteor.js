@@ -1,17 +1,41 @@
+var appbaseRef = new Appbase({
+  url: 'https://scalr.api.appbase.io',
+  appname: 'meteor-twitter',
+  username: 'LPQQpGHXV',
+  password: '48006b64-2785-451b-bea0-070227dca401'
+});
 if (Meteor.isClient) {
-  // counter starts at 0
-  Session.setDefault('counter', 0);
-
-  Template.hello.helpers({
-    counter: function () {
-      return Session.get('counter');
+  var renderedTweets = new ReactiveArray();
+  var requestObject = {
+    type: 'tweets',
+    size: 20,
+    body: {
+      query: {
+        match: {
+          tweet: {
+            query: "",
+            operator: "or",
+            zero_terms_query: "all"
+          }
+        }
+      }
     }
-  });
+  }
+  appbaseRef.search(requestObject).on('data', function(result) {
+      result.hits.hits.map(function(object){
+        renderedTweets.unshift(object._source)
+      })
+      appbaseRef.searchStream(requestObject).on('data', function(stream) {
+        renderedTweets.unshift(stream._source)
+      }).on('error', function(stream) {
+        console.log("query error: ", stream)
+      })
+  })
 
-  Template.hello.events({
-    'click button': function () {
-      // increment the counter when button is clicked
-      Session.set('counter', Session.get('counter') + 1);
+  // This code only runs on the client
+  Template.body.helpers({
+    tweets: function () {
+      return renderedTweets.list();
     }
   });
 }
