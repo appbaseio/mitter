@@ -6,6 +6,7 @@
 	<div class="container">
 		<h1>Tweets</h1>
 		<div class="col s12 m8 offset-m2 l6 offset-l3">
+			{{> search_box}}
 			<div class="card-panel grey lighten-5 z-depth-1">
 				{{#each tweets}}
 					{{> tweetItem}}
@@ -29,4 +30,8 @@
 			</span>
 		</div>
 	</div>
+</template>
+
+<template name="search_box">
+	<input class="searchBox" type = "text" placeholder="Search the tweets" autofocus="autofocus"/>
 </template>
